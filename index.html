@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Browser cache testing</title>
+</head>
+<body>
+The main aim of the page is to determine differencies in headers while performing different actions in browser. Also it will be interesting to know when resource comes from cache and when from the server.
+This page will request several .js files. Each of them will be returned from the server with different headers (cache-related). Headers will be displayed to you, once resource is downloaded.
+After that you can try different types of browser commands (such as F5, CTRL+R, CTRL+F5, Back/Forward and so on) in order to refresh the page. 
+<p>
+    <a href="dummypage.html">Navigate away from the page</a>
+</p>
+<div id="testResults"></div>
+<div id="resultsTemplate" type="text/x-jquery-tmpl" style="visibility: hidden"> 
+    <p>
+        Resource: ${name}<br/>
+        {{if oldData['Version'] == data['Version'] }}
+            <p style='color:red'> From Cache! </p>
+        {{/if}}
+        <ul>        
+            {{each data}}
+                {{if $index != 'Version' }}<!--custom "header" Version needed for internal purposes only-->
+                    <li>
+                        ${$index}: 
+                        {{if oldData[$index] != $value }}
+                            <b> ${$value} </b>
+                        {{else}}
+                            ${$value}
+                        {{/if}}
+                    </li>       
+                {{/if}}    
+            {{/each}}
+        </ul>
+    </p>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="js/jquery.tmpl.min.js" type="text/javascript"></script>
+<script src="js/cachetest.js" type="text/javascript"></script>
+
+<script src="handlers/nocache.ashx" type="text/javascript"></script>
+<script src="handlers/privatecache.ashx" type="text/javascript"></script>
+<script src="handlers/noprefs.ashx" type="text/javascript"></script>
+</body>
+</html>
