@@ -1,5 +1,5 @@
 The main intent of the project is to test user-invoked refresh and
-browser’s behavior after that.
+browserï¿½s behavior after that.
 
 In theory F5 should lead to no request (if resource is in the cache and
 is fresh) or conditional request (in case when resource is in the cache,
@@ -22,5 +22,5 @@ All results could be combined in such table
 
 You can find more details in [my blog post][]
 
-  [image]: http://podlipensky.com/image.axd?picture=image_31.png
-  [my blog post]: http://podlipensky.com/post/2012/03/12/Behind-Refresh-Button.aspx
+  [image]: http://podlipensky.com/wp-content/uploads/image_thumb_30.png
+  [my blog post]: http://podlipensky.com/2012/03/behind-refresh-button/
